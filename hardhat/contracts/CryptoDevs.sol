@@ -46,7 +46,7 @@
        */
       constructor (string memory baseURI, address whitelistContract) ERC721("Crypto Devs", "CD") {
           _baseTokenURI = baseURI;
-          whitelist = IWhitelist(whitelistContract);
+          whitelist = IntWhitelist(whitelistContract);
       }
 
       /**
@@ -65,8 +65,8 @@
       function presaleMint() public payable onlyWhenNotPaused {
           require(presaleStarted && block.timestamp < presaleEnded, "Presale is not running");
           require(whitelist.whitelistedAddresses(msg.sender), "You are not whitelisted");
-          require(tokenIds < maxTokenIds, "Exceeded maximum Crypto Devs supply");
-          require(msg.value >= _price, "Ether sent is not correct");
+          require(tokenIds < maxTokenIds, "Exceeded maximum Crypto Devs Nft supply");
+          require(msg.value >= _price, "Ether sent is not enough");
           tokenIds += 1;
           //_safeMint is a safer version of the _mint function as it ensures that
           // if the address being minted to is a contract, then it knows how to deal with ERC721 tokens
