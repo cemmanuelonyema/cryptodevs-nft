@@ -3,7 +3,7 @@ require("dotenv").config({ path: ".env" });
 const { WHITELIST_CONTRACT_ADDRESS, METADATA_URL } = require("../constants");
 
 async function main() {
-  // Address of the whitelist contract that you deployed in the previous module
+  // Address of the whitelist contract  deployed in the previously
   const whitelistContract = WHITELIST_CONTRACT_ADDRESS;
   // URL from where we can extract the metadata for a Crypto Dev NFT
   const metadataURL = METADATA_URL;
@@ -21,7 +21,7 @@ async function main() {
 
   // print the address of the deployed contract
   console.log(
-    "Crypto Devs Contract Address:",
+    "Crypto Devs Nft Contract Address:",
     deployedCryptoDevsContract.address
   );
 }
